@@ -10,7 +10,7 @@ Welcome to the Cyber Skills Academy Cybersecurity Principles Lab! This interacti
 
 ## Getting Started
 
-1. Clone this repository to your local machine using `git clone <repository_url>`.
+1. Clone this repository to your local machine using `git clone https://github.com/Cyber-Skills-Academy/Security-Analyst-Learning-Path-Labs.git`.
 2. Navigate to the repository directory on your computer.
 3. Follow the detailed instructions in each part of the lab.
 
