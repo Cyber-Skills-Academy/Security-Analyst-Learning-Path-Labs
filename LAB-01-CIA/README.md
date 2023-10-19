@@ -11,7 +11,7 @@ Welcome to the Cyber Skills Academy Cybersecurity Principles Lab! This interacti
 ## Getting Started
 
 1. Clone this repository to your local machine using `git clone https://github.com/Cyber-Skills-Academy/Security-Analyst-Learning-Path-Labs.git`.
-2. Navigate to the repository directory on your computer.
+2. Navigate to the repository directory on your computer using `cd LAB-01-CIA`
 3. Follow the detailed instructions in each part of the lab.
 
 ## Part 1: Confidentiality with Encryption
@@ -20,7 +20,7 @@ Confidentiality is about ensuring that no unauthorized individuals can access se
 
 ### Instructions
 
-1. Navigate to the `Part_1_Encryption` folder in your terminal or command prompt.
+1. Navigate to the `part1_Encryption` folder in your terminal or command prompt.
 2. Run the command `python encrypt.py`. This script performs the encryption of the `very_sensitive_data.txt` file, and you'll see an `encrypted_data.txt` file created in the directory.
    - Observe the encrypted file and note how the content is no longer readable, demonstrating the file's confidentiality.
 3. Imagine you're securely transmitting this encrypted file to a trusted party. This simulates how encrypted data can be safely shared or stored, as it's unreadable without the appropriate decryption key.
@@ -35,28 +35,33 @@ Integrity involves maintaining the accuracy and consistency of data. It's crucia
 
 ### Instructions
 
-1. Navigate to the `Part_2_Hashing` folder.
-2. Run the command `python hashing.py` to generate and display the hash of the `very_sensitive_data.txt` file.
-   - Note this original hash value; it represents the current state of the file.
-3. Now, let's simulate an unauthorized modification. Open `very_sensitive_data.txt` and make a small change to the file's content (like adding or removing a word).
-4. Run the `python hashing.py` command again to generate a new hash value for the modified file.
-5. Compare the new hash with the original. Even a minor change to the data causes a significant change in the hash, indicating that the file's integrity has been compromised.
+1. Navigate to the `part2_Hashing` folder in your terminal or command prompt.
+2. Run the command `python hash_file.py`. This script initially generates the SHA-256 hash of the `very_sensitive_data.txt` file and displays it.
+   - Note this original hash value; it represents the intact state of the file.
+3. Now, the script simulates sending the file over the network to a recipient.
+4. Upon "reception", the script automatically calculates the hash of the received file and compares it with the original hash.
+   - If the hashes match, the integrity of the file is intact. If not, the file might have been tampered with during transmission.
+5. For the second scenario, you're prompted to modify the `very_sensitive_data.txt` file. Open the file and alter its content slightly (e.g., change a digit of a social security number or a letter in a username), then save it.
+6. Return to the terminal or command prompt and press `Enter` to have the script recalculate the file's hash.
+7. Observe the new hash and compare it with the original. Notice how even the slightest alteration to the file data results in a completely different hash, indicating a breach in integrity.
 
-**Discuss:** Reflect on the critical role of hashing in ensuring data integrity, allowing us to detect even the slightest alterations.
+**Discuss:** Reflect on the crucial role of hashing in maintaining data integrity. Think about how hashing can be used to ensure the authenticity and consistency of data, particularly when it's transferred across networks or stored for long periods. Discuss the implications of a changed hash and the potential consequences in real-world scenarios.
 
 ## Part 3: Availability with Data Backup and Recovery
 
-Availability ensures that data is accessible to authorized users when needed. This aspect of the CIA Triad is often implemented through backup and recovery strategies, which we will explore in this section.
+Availability ensures that information and systems are accessible to authorized users when they need it. One of the most common strategies to ensure availability, especially in the face of accidental deletion or data corruption, is through regular backups and having a recovery plan in place.
 
 ### Instructions
 
-1. Navigate to the `Part_3_Availability` folder.
-2. Imagine a scenario where the original data file is lost or corrupted. Such an incident can severely impact an organization's operations and data availability.
-3. Run the command `python backup_recovery.py` to simulate the restoration of the file from a backup.
-   - This script represents a simplified version of data recovery processes that organizations use to restore data availability.
-4. Verify that the content of the restored file matches the original file, emphasizing the importance of regular backups.
+1. Navigate to the `part3_backup_recovery` folder in your terminal or command prompt.
+2. Run the command `python create_backup.py`. This script creates a backup of the `very_important_file.txt` within the `data` folder by copying it to a new `backup` folder.
+   - Observe how the script creates a copy of the important file, simulating a backup process.
+3. Now, simulate a data loss event by manually deleting the `very_important_file.txt` from the `data` folder.
+4. After simulating the data loss, run the command `python simulate_recovery.py`. This script restores the `very_important_file.txt` from the `backup` folder to the `data` folder, simulating a data recovery process.
+5. Confirm that the `very_important_file.txt` has been successfully restored to the `data` folder, ensuring its availability even after an unexpected data loss.
 
-**Discuss:** Consider the implications of data loss and the significance of backup and recovery strategies in maintaining data availability.
+**Discuss:** Reflect on the significance of backup and recovery strategies in maintaining data availability. Consider the potential consequences of not having backup mechanisms in place and the business impact in real-world scenarios.
+
 
 ## Conclusion
 
